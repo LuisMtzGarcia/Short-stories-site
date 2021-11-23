@@ -1,21 +1,28 @@
 {% extends "short_stories/base.html" %}
 
+{% block page_header %}
+    <h3>
+        Cuentos
+    </h3>
+{% endblock page_header %}
+
 {% block content %}
 
-    <p>
-        Cuentos
-    </p>
-
-    <ul>
-        {% for story in stories %}
-            <li>
+    {% for story in stories %}
+        <div class="card mb-3">
+            <h4 class="card-header">
                 <a href="{% url 'short_stories:story' story.id %}">
-                    {{ story.id }}.- {{ story }}
+                    {{ story }}
                 </a>
-            </li>
-        {% empty %}
-            <li>Aún no se ha publicado ningún cuento.</li>
-        {% endfor %}
-    </ul>
-
+                <small class="text-muted" style="float:right">
+                    Publicado: {{ story.date_added|date:'M d, Y' }}
+                </small>
+            </h4>
+            <div class="card-body">
+                {{ story.synopsis|linebreaks }}
+            </div>
+        </div>
+    {% empty %}
+        <p>Aún no se ha publicado ningún cuento.</p>
+    {% endfor %}
 {% endblock content %}
