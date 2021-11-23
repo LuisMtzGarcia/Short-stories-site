@@ -1,0 +1,21 @@
+{% extends "short_stories/base.html" %}
+
+{% block content %}
+
+    <p>
+        Cuentos
+    </p>
+
+    <ul>
+        {% for story in stories %}
+            <li>
+                <a href="{% url 'short_stories:story' story.id %}">
+                    {{ story.id }}.- {{ story }}
+                </a>
+            </li>
+        {% empty %}
+            <li>Aún no se ha publicado ningún cuento.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
