@@ -11,9 +11,16 @@
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
 
+    <style>
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+
 </head>
-<body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+<body style="padding-top: 80px">
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
         
         <a class="navbar-brand" href="{% url 'short_stories:index' %}">
             Inicio
@@ -37,7 +44,7 @@
     </nav>
 
     <main role="main" class="container">
-        <div class="pb-2 mb-2 border-bottom">
+        <div class="pb-2 mb-2 border-bottom ">
             {% block page_header %}{% endblock page_header %}
         </div>
         <div>

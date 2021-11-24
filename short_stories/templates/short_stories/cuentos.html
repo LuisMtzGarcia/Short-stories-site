@@ -9,19 +9,36 @@
 {% block content %}
 
     {% for story in stories %}
-        <div class="card mb-3">
-            <h4 class="card-header">
-                <a href="{% url 'short_stories:story' story.id %}">
-                    {{ story }}
-                </a>
-                <small class="text-muted" style="float:right">
-                    Publicado: {{ story.date_added|date:'M d, Y' }}
-                </small>
-            </h4>
-            <div class="card-body">
-                {{ story.synopsis|linebreaks }}
+        <div class="card mb-3"><!-- Done -->
+            <div class="row g-0 no-gutters">
+                <div class="col-md-3">
+                    <a href="{% url 'short_stories:story' story.id %}">
+                        <img src="/media/photologue/photos/{{ story.id }}.jpg/" class="rounded-start responsive"alt="Portada">
+                    </a>
+                    
+                </div>
+                <div class="col">
+                    <h4 class="card-header">
+                        <div class="row">
+                            <div class="col">
+                                <a href="{% url 'short_stories:story' story.id %}">
+                                    {{ story }}
+                                </a>                                
+                            </div>
+                            <div class="col">
+                                <small class="text-muted" style="float:right">
+                                    Publicado: {{ story.date_added|date:'M d, Y' }}
+                                </small>
+                            </div>
+                        </div>
+                    </h4>
+                    <div class="card-body overflow-scroll">
+                        {{ story.synopsis|linebreaks }}
+                    </div>
+                </div>
             </div>
         </div>
+
     {% empty %}
         <p>Aún no se ha publicado ningún cuento.</p>
     {% endfor %}
