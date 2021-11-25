@@ -8,7 +8,7 @@ def index(request):
 
 def stories(request):
     """Show all stories."""
-    stories = Story.objects.order_by('date_added')
+    stories = Story.objects.order_by('-date_added')
     context = {'stories': stories}
     return render(request, 'short_stories/cuentos.html', context)
 
