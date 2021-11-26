@@ -15,7 +15,7 @@ class Genre(models.Model):
 class Story(models.Model):
     """The published short story."""
     title = models.CharField(max_length=200)
-    genre =  models.ForeignKey(Genre, on_delete=models.SET_DEFAULT, default="cuento")
+    genre =  models.ForeignKey(Genre, on_delete=models.CASCADE)
     synopsis = models.TextField()
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
