@@ -1,0 +1,1 @@
+web: gunicorn luis_story.wsgi --log-file -
