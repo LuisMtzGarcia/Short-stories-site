@@ -12,15 +12,13 @@ BODY {
 }
 
 </style>
+
 {% extends "short_stories/base.html" %}
 
 {% block page_header %}
     <h3>
-        Cuentos
+        Cuentos de {{ genre }}:
     </h3>
-    <p class="lead">
-        Todos los cuentos publicados en el sitio.
-    </p>
 {% endblock page_header %}
 
 {% block content %}
@@ -50,10 +48,6 @@ BODY {
                         </div>
                     </h4>
                     <div class="card-body overflow-scroll">
-                        <p>
-                            Género: {{ story.genre }}
-                        </p>
-
                         {{ story.synopsis|linebreaks }}
                     </div>
                 </div>
@@ -61,6 +55,8 @@ BODY {
         </div>
 
     {% empty %}
-        <p>Aún no se ha publicado ningún cuento.</p>
+        <p>Aún no se ha publicado ningún cuento de este género.</p>
     {% endfor %}
+
+
 {% endblock content %}

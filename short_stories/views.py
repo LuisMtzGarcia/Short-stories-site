@@ -20,4 +20,15 @@ def story(request, story_id):
     context = {'story': story}
     return render(request, 'short_stories/cuento.html', context)
 
+def genres(request):
+    """Shows all genres."""
+    genres = Genre.objects.order_by('date_added')
+    context = {'genres': genres}
+    return render(request, 'short_stories/generos.html', context)
 
+def genre(request, genre_id):
+    """Shows a single genre and the stories related to it."""
+    genre = Genre.objects.get(id=genre_id)
+    stories = genre.story_set.order_by('-date_added')
+    context = {'genre': genre, 'stories': stories}
+    return render(request, 'short_stories/genero.html', context)

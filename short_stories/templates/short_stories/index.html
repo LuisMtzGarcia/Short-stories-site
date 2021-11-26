@@ -20,7 +20,7 @@ BODY {
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between btn-group" role="group" aria-label="Genres">
         {% for genre in genres %}
-        <a href="#"  class="p-2 btn btn-outline-dark">{{ genre }}</a>
+        <a href="{% url 'short_stories:genre' genre.id %}"  class="p-2 btn btn-outline-dark">{{ genre }}</a>
         {% empty %}
         <p>No genres yet</p>
         {% endfor %}
@@ -28,12 +28,16 @@ BODY {
   </div>
     <div class="jumbotron bg-dark text-white text-center">
         <h1 class="display-2 fst-italic">
-            Autor Luis Martínez
+            Luis Martínez
         </h1>
 
         <p class="lead my-3">
             Colección de los cuentos escritos por Luis Martínez (Osea, yo).
         </p>
+        <a href="{% url 'short_stories:stories' %}" class="btn btn-secondary btn-lg">
+            Entrele
+        </a>
+
     </div>
 
     

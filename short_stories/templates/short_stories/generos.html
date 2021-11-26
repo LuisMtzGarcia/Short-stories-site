@@ -1,0 +1,41 @@
+<style type="text/css">
+HTML {
+    height: 100%;
+}
+
+BODY {
+    min-height: 100%;
+    background-image: url("https://images.unsplash.com/photo-1449247709967-d4461a6a6103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+</style>
+
+{% extends "short_stories/base.html" %}
+
+{% block page_header %}
+    <h3>
+        Géneros
+    </h3>
+    <p class="lead">
+        Todos los cuentos publicados en el sitio, organizados por género.
+    </p>
+{% endblock page_header %}
+
+{% block content %}
+
+    {% for genre in genres %}
+        <h1>
+            <a href="{% url 'short_stories:genre' genre.id %}">
+                {{ genre }}
+            </a>
+        </h1>
+    {% empty %}
+        <p>
+            Aún no se ha registrado algún género.
+        </p>
+    {% endfor %}
+
+{% endblock content %}
