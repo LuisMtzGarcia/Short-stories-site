@@ -20,3 +20,8 @@ This was a practice project aimed at learning how to use Django as a back-end an
 * Pillow 8.4.0
 * Python 3.9.9
 * Bootstrap 4
+
+
+## To-do:
+* Implement AWS S3 bucket to store the cover images. (They're currently being deleted each Dynocycle in Heroku)
+* Improve documentation
