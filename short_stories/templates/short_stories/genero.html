@@ -28,9 +28,8 @@ BODY {
             <div class="row g-0 no-gutters">
                 <div class="col-md-3">
                     <a href="{% url 'short_stories:story' story.id %}">
-                        <img src="{{ story.cover.url }}" class="rounded-start responsive"alt="Portada">
+                        <img src="{{ story.cover }}" class="rounded-start responsive"alt="Portada">
                     </a>
-                    
                 </div>
                 <div class="col">
                     <h4 class="card-header">
