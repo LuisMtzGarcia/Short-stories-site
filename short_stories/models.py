@@ -19,7 +19,7 @@ class Story(models.Model):
     synopsis = models.TextField()
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
-    cover = models.ImageField(upload_to='media/')
+    cover = models.URLField(max_length=200)
 
     class Meta:
         verbose_name_plural = 'stories'

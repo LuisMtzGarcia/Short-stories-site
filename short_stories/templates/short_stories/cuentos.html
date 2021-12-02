@@ -1,3 +1,7 @@
+<!-- This page displays all the published short stories -->
+<!-- This style block contains the background image, if you want to change it
+    get the URL of the image you want to replace it with, and paste it inside
+    the parentheses after "url" -->
 <style type="text/css">
 HTML {
     height: 100%;
@@ -15,22 +19,26 @@ BODY {
 {% extends "short_stories/base.html" %}
 
 {% block page_header %}
+    <!-- The title of the page -->
     <h3>
         Cuentos
     </h3>
+    <!-- A short description of the page -->
     <p class="lead">
         Todos los cuentos publicados en el sitio.
     </p>
 {% endblock page_header %}
 
 {% block content %}
-
+    <!-- This section of the site displays the stories in Bootstrap4's card format -->
     {% for story in stories %}
         <div class="card mb-3"><!-- Done -->
             <div class="row g-0 no-gutters">
                 <div class="col-md-3">
+                    <!-- The image links to the individual story page -->
                     <a href="{% url 'short_stories:story' story.id %}">
-                        <img src="{{ story.cover.url }}" class="rounded-start responsive"alt="Portada">
+                        <!-- The image displayed at the left  of the card -->
+                        <img src="{{ story.cover }}" class="rounded-start responsive"alt="Portada">
                     </a>
                     
                 </div>
@@ -38,28 +46,33 @@ BODY {
                     <h4 class="card-header">
                         <div class="row">
                             <div class="col">
+                                <!-- A link to the story, using the title of the story -->
                                 <a href="{% url 'short_stories:story' story.id %}">
                                     {{ story }}
                                 </a>                                
                             </div>
                             <div class="col">
+                                <!-- The date the story was added to the database -->
                                 <small class="text-muted" style="float:right">
                                     Publicado: {{ story.date_added|date:'M d, Y' }}
                                 </small>
                             </div>
                         </div>
                     </h4>
+                    <!-- The body of the card, displays the genre and the synopsis -->
                     <div class="card-body overflow-scroll">
+                        <!-- Displays the genre of the story -->
                         <p>
                             Género: {{ story.genre }}
                         </p>
-
+                        <!-- The synopsis of the story -->
                         {{ story.synopsis|linebreaks }}
                     </div>
                 </div>
             </div>
         </div>
 
+    <!-- This message is displayed in case the story database is empty -->
     {% empty %}
         <p>Aún no se ha publicado ningún cuento.</p>
     {% endfor %}

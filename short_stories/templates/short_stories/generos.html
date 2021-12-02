@@ -1,3 +1,7 @@
+<!-- The page that shows all the available genres -->
+<!-- This style block contains the background image, if you want to change it
+    get the URL of the image you want to replace it with, and paste it inside
+    the parentheses after "url" -->
 <style type="text/css">
 HTML {
     height: 100%;
@@ -16,9 +20,11 @@ BODY {
 {% extends "short_stories/base.html" %}
 
 {% block page_header %}
+    <!-- The title of the page  -->
     <h3>
         Géneros
     </h3>
+    <!-- A short description of the page -->
     <p class="lead">
         Todos los cuentos publicados en el sitio, organizados por género.
     </p>
@@ -28,10 +34,13 @@ BODY {
 
     {% for genre in genres %}
         <h1>
+            <!-- Displays each genre linking to the individual genre page -->
+            <!-- genero.html -->
             <a href="{% url 'short_stories:genre' genre.id %}">
                 {{ genre }}
             </a>
         </h1>
+    <!-- This message is displayed in case there aren't any genres in the database -->
     {% empty %}
         <p>
             Aún no se ha registrado algún género.

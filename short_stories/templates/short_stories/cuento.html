@@ -1,7 +1,9 @@
+<!-- This page displays the short story and it's title. -->
 {% extends 'short_stories/base.html' %}
 
 {% block page_header %}
 
+<!-- This part displays the title  of the story -->
 <h1 class="display-1 text-center">
     {{ story.title }}
 </h1>
@@ -9,9 +11,9 @@
 {% endblock page_header %}
 
 {% block content %}
-
+    <!-- The date the story was added to the database -->
     <p class="lead" style="text-align:right;">{{ story.date_added|date:'M d, Y' }}</p>
-
+    <!-- The main body of text of the story -->
     <p>
         {{ story.text|linebreaks }}
     </p>
