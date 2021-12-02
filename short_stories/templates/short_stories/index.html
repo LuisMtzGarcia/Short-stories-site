@@ -1,3 +1,8 @@
+<!-- This is the main page of the site -->
+<!-- The index, if you will -->
+<!-- This style block contains the background image, if you want to change it
+    get the URL of the image you want to replace it with, and paste it inside
+    the parentheses after "url" -->
 <style type="text/css">
 HTML {
     height: 100%;
@@ -16,17 +21,25 @@ BODY {
 
 {% block page_header %}
 
-
+  <!-- This is a bar that displays buttons linking to each registered genre. 
+    You don't have to manually add a new button for each genre you add, this 
+    block of code will take care of that.-->
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between btn-group" role="group" aria-label="Genres">
         {% for genre in genres %}
+        <!-- The button that links to the individual genre page -->
         <a href="{% url 'short_stories:genre' genre.id %}"  class="p-2 btn btn-outline-dark">{{ genre }}</a>
         {% empty %}
+        <!-- This is displayed in case there aren't any genres added yet. -->
         <p>No genres yet</p>
         {% endfor %}
     </nav>
   </div>
+    <!-- This is the "Jumbotron", the big block in the center of the page that 
+    displays some text -->
     <div class="jumbotron bg-dark text-white text-center">
+        <!-- This is the main part of the jumbotron, in this case, 
+        the jumbotron displays the author's name -->
         <h1 class="display-2 fst-italic">
             Luis Martínez
         </h1>
