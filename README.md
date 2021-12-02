@@ -1,6 +1,8 @@
 # Short stories web-publication site
 Simple Django-based site to easily publish short stories and organize them by genre. 
 
+[Example site](URL 'https://luis-martinez.herokuapp.com/')
+
 ## Introduction
 This project aims to offer authors a simple and effective way to publish and showcase their short stories. 
 Stories have the following attributes:
