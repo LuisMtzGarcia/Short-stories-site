@@ -25,5 +25,5 @@ This was a practice project aimed at learning how to use Django as a back-end an
 
 
 ## To-do:
-* Implement AWS S3 bucket to store the cover images. (They're currently being deleted each Dynocycle in Heroku)
-* Improve documentation
+* Nothing! The initial scope of the project has been reached. 
+* Move on to the next project!
