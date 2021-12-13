@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Story, Genre
 
@@ -16,7 +16,7 @@ def stories(request):
 
 def story(request, story_id):
     """Shows a single story."""
-    story = Story.objects.get(id=story_id)
+    story = get_object_or_404(Story, id=story_id)
     context = {'story': story}
     return render(request, 'short_stories/cuento.html', context)
 
