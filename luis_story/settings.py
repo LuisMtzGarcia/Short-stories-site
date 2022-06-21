@@ -40,6 +40,22 @@ INSTALLED_APPS = [
     'photologue',
     'sortedm2m',
 
+    # Wagtail apps.
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail',
+
+    'modelcluster',
+    'taggit',
+
     # Default django apps.
     'django.contrib.sites',
     'django.contrib.admin',
@@ -58,6 +74,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Wagtail middleware
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'luis_story.urls'
@@ -132,6 +151,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Static root (Wagtail)
+# https://docs.wagtail.org/en/stable/getting_started/integrating_into_django.html
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 # Media files
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
 
@@ -153,3 +177,7 @@ if os.environ.get('DEBUG') == 'TRUE':
     DEBUG = True
 elif os.environ.get('DEBUG') == 'FALSE':
     DEBUG = False
+
+# Wagtail settings
+
+WAGTAIL_SITE_NAME = 'Short Stories Site'
