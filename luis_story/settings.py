@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'sortedm2m',
 
     # Wagtail apps.
+    'wagtail.contrib.modeladmin',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
